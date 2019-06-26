@@ -31,13 +31,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtinput = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnsave = new System.Windows.Forms.Button();
+            this.btnrun = new System.Windows.Forms.Button();
+            this.btnbrowse = new System.Windows.Forms.Button();
+            this.pnloutput = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.pnloutput);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(540, 3);
             this.groupBox2.Name = "groupBox2";
@@ -76,17 +76,9 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output";
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 28);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(354, 428);
-            this.textBox2.TabIndex = 1;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtinput);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -95,57 +87,67 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Input ";
             // 
-            // textBox1
+            // txtinput
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 28);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 428);
-            this.textBox1.TabIndex = 0;
+            this.txtinput.Location = new System.Drawing.Point(6, 28);
+            this.txtinput.Multiline = true;
+            this.txtinput.Name = "txtinput";
+            this.txtinput.Size = new System.Drawing.Size(354, 428);
+            this.txtinput.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.button3);
-            this.panel3.Controls.Add(this.button2);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnsave);
+            this.panel3.Controls.Add(this.btnrun);
+            this.panel3.Controls.Add(this.btnbrowse);
             this.panel3.Location = new System.Drawing.Point(375, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(159, 462);
             this.panel3.TabIndex = 0;
             // 
-            // button3
+            // btnsave
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(26, 332);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 67);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "SAVE";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnsave.BackColor = System.Drawing.Color.Transparent;
+            this.btnsave.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsave.Location = new System.Drawing.Point(26, 332);
+            this.btnsave.Name = "btnsave";
+            this.btnsave.Size = new System.Drawing.Size(112, 67);
+            this.btnsave.TabIndex = 2;
+            this.btnsave.Text = "SAVE";
+            this.btnsave.UseVisualStyleBackColor = false;
+            this.btnsave.Click += new System.EventHandler(this.Btnsave_Click);
             // 
-            // button2
+            // btnrun
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(26, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(112, 67);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "RUN";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnrun.BackColor = System.Drawing.Color.Transparent;
+            this.btnrun.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnrun.Location = new System.Drawing.Point(26, 195);
+            this.btnrun.Name = "btnrun";
+            this.btnrun.Size = new System.Drawing.Size(112, 67);
+            this.btnrun.TabIndex = 1;
+            this.btnrun.Text = "RUN";
+            this.btnrun.UseVisualStyleBackColor = false;
+            this.btnrun.Click += new System.EventHandler(this.Btnrun_Click);
             // 
-            // button1
+            // btnbrowse
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 67);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "BROWSE";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnbrowse.BackColor = System.Drawing.Color.Transparent;
+            this.btnbrowse.Font = new System.Drawing.Font("Times New Roman", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbrowse.Location = new System.Drawing.Point(26, 66);
+            this.btnbrowse.Name = "btnbrowse";
+            this.btnbrowse.Size = new System.Drawing.Size(112, 67);
+            this.btnbrowse.TabIndex = 0;
+            this.btnbrowse.Text = "BROWSE";
+            this.btnbrowse.UseVisualStyleBackColor = false;
+            this.btnbrowse.Click += new System.EventHandler(this.Button1_Click);
+            // 
+            // pnloutput
+            // 
+            this.pnloutput.Location = new System.Drawing.Point(17, 28);
+            this.pnloutput.Name = "pnloutput";
+            this.pnloutput.Size = new System.Drawing.Size(325, 416);
+            this.pnloutput.TabIndex = 0;
             // 
             // Form1
             // 
@@ -159,7 +161,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -172,13 +173,13 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtinput;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnsave;
+        private System.Windows.Forms.Button btnrun;
+        private System.Windows.Forms.Button btnbrowse;
+        private System.Windows.Forms.Panel pnloutput;
     }
 }
 
