@@ -16,6 +16,9 @@ namespace _2ndassessment
         {
             InitializeComponent();
         }
+        Creator factory = new FactoryClass();
+        Pen myPen = new Pen(Color.Red);
+        int x = 0, y = 0, width, height, radius, point, repeatval, counter;
 
         private void Form1_Load(object sender, EventArgs e)
         {
