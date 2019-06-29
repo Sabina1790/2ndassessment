@@ -21,6 +21,16 @@ namespace _2ndassessment
         Pen myPen = new Pen(Color.Red);
         int x = 0, y = 0, width, height, radius, point, repeatval, counter;
 
+        int loop = 0, kStart = 0, ifcounter = 0;
+
+        private void Btnclear_Click(object sender, EventArgs e)
+        {
+            txtinput.Text = "";
+        }
+
+        private bool loopcheck;
+
+
         private void Btnrun_Click(object sender, EventArgs e)
         {
             Graphics g = pnloutput.CreateGraphics();
@@ -186,6 +196,56 @@ namespace _2ndassessment
                             Rectangle r = new Rectangle();
                             r.set(x, y, width, height);
                             r.draw(g); } } }
+                else if (cmd[0].Equals("polygon") == true)
+                {
+                    
+                    if (cmd.Length < 2)
+                    {
+                        MessageBox.Show("Invalid Parameter ");
+                    }
+                    else
+                    {
+                        string[] param = cmd[1].Split(',');
+                        if (param.Length < 2)
+                        {
+                            MessageBox.Show("Invalid Parameter ");
+                        }
+                        else
+                        {
+                            Int32.TryParse(param[0], out width);
+                            Int32.TryParse(param[1], out height);
+                            IShape circle = factory.getShape("polygon");
+                            Polygon p = new Polygon();
+                            p.set(x, y, width, height);
+                            p.draw(g);
+                        }
+                    }
+                }
+                else if (cmd[0].Equals("hexagon") == true)
+                {
+
+                    if (cmd.Length < 2)
+                    {
+                        MessageBox.Show("Invalid Parameter ");
+                    }
+                    else
+                    {
+                        string[] param = cmd[1].Split(',');
+                        if (param.Length < 2)
+                        {
+                            MessageBox.Show("Invalid Parameter ");
+                        }
+                        else
+                        {
+                            Int32.TryParse(param[0], out width);
+                            Int32.TryParse(param[1], out height);
+                            IShape circle = factory.getShape("hexagon");
+                            IrregularHexagon i = new IrregularHexagon();
+                            i.set(x, y, width, height);
+                            i.draw(g);
+                        }
+                    }
+                }
                 else if (cmd[0].Equals("3drectangle") == true)
                 {
                     if (cmd.Length < 2)
@@ -205,7 +265,8 @@ namespace _2ndassessment
                             Int32.TryParse(param[1], out height);
                             IShape circle = factory.getShape("3drectangle");
                             _3DRectangle r = new _3DRectangle();
-                            r.set(x, y, width, height); r.draw(g);
+                            r.set(x, y, width, height);
+                            r.draw(g);
                         } } }
                 else if (cmd[0].Equals("triangle") == true)
                 {
@@ -260,7 +321,7 @@ namespace _2ndassessment
                             {
                                 width = width + increment;
                                 height = height + increment;
-                                IShape rectangle = factory.getShape("rectangle");
+                                IShape circle = factory.getShape("rectangle");
                                 Rectangle rec = new Rectangle();
                                 rec.set(x, y, width, height);
                                 rec.draw(g); } }
@@ -270,10 +331,68 @@ namespace _2ndassessment
                             {
                                 width = width - increment;
                                 height = height - increment;
-                                IShape rectangle = factory.getShape("rectangle");
+                                IShape circle = factory.getShape("rectangle");
                                 Rectangle rec = new Rectangle();
                                 rec.set(x, y, width, height);
                                 rec.draw(g); }
+                        }
+                    }
+                    else if (cmd[2].Equals("polygon") == true)
+                    {
+                        int increment;
+                        Int32.TryParse(cmd[4], out increment);
+                        if (cmd[3].Equals("+") == true)
+                        {
+                            for (int rc = 0; rc < repeatval; rc++)
+                            {
+                                width = width + increment;
+                                height = height + increment;
+                                IShape circle = factory.getShape("polygon");
+                                Polygon pol = new Polygon();
+                                pol.set(x, y, width, height);
+                                pol.draw(g);
+                            }
+                        }
+                        else if (cmd[3].Equals("-") == true)
+                        {
+                            for (int rc = 0; rc < repeatval; rc++)
+                            {
+                                width = width - increment;
+                                height = height - increment;
+                                IShape circle = factory.getShape("polygon");
+                                Polygon pol = new Polygon();
+                                pol.set(x, y, width, height);
+                                pol.draw(g);
+                            }
+                        }
+                    }
+                    else if (cmd[2].Equals("hexagon") == true)
+                    {
+                        int increment;
+                        Int32.TryParse(cmd[4], out increment);
+                        if (cmd[3].Equals("+") == true)
+                        {
+                            for (int rc = 0; rc < repeatval; rc++)
+                            {
+                                width = width + increment;
+                                height = height + increment;
+                                IShape circle = factory.getShape("hexagon");
+                                IrregularHexagon ih = new IrregularHexagon();
+                                ih.set(x, y, width, height);
+                                ih.draw(g);
+                            }
+                        }
+                        else if (cmd[3].Equals("-") == true)
+                        {
+                            for (int rc = 0; rc < repeatval; rc++)
+                            {
+                                width = width - increment;
+                                height = height - increment;
+                                IShape circle = factory.getShape("hexagon");
+                                IrregularHexagon ih = new IrregularHexagon();
+                                ih.set(x, y, width, height);
+                                ih.draw(g);
+                            }
                         }
                     }
                     else if (cmd[2].Equals("triangle") == true)
@@ -457,6 +576,12 @@ namespace _2ndassessment
                 MessageBox.Show("File Saved Successfully"); }
         }
 
+
+        /// <summary>
+        /// used to browse text file for inserting
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button1_Click(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -499,9 +624,21 @@ namespace _2ndassessment
 
         }
 
+
+        /// <summary>
+        /// this helps in moving position of graphic shape
+        /// </summary>
+        /// <param name="toX">X</param>
+        /// <param name="toY">Y</param>
         public void moveTo(int toX, int toY)
         { x = toX; y = toY; }
 
+
+        /// <summary>
+        /// helps in drawing shape.
+        /// </summary>
+        /// <param name="toX">X</param>
+        /// <param name="toY">Y</param>
         public void drawTo(int toX, int toY)
         { x = toX; y = toY; }
     }

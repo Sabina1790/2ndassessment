@@ -14,7 +14,7 @@ namespace _2ndassessment
     public class Line : IShape
     {
         /// <summary>
-        /// pass interger values X as x-axis and Y as y-axis
+        /// pass interger values X as x-axis and Y as y-axis 
         /// </summary>
         public int x, y, toX, toY;
 

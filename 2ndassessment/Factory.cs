@@ -44,6 +44,14 @@ namespace _2ndassessment
             {
                 return new Line();
             }
+            else if (shapeType.Equals("polygon"))
+            {
+                return new Polygon();
+            }
+            else if (shapeType.Equals("hexagon"))
+            {
+                return new IrregularHexagon();
+            }
             else
             {
                 //throw an appropriate exception.
