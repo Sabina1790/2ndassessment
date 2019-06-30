@@ -23,6 +23,27 @@ namespace _2ndassessment
 
         int loop = 0, kStart = 0, ifcounter = 0;
 
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Sabina1790/2ndassessment.git");
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("");
+        }
+
+        private void Btncl_Click(object sender, EventArgs e)
+        {
+           
+        }
+
         private void Btnclear_Click(object sender, EventArgs e)
         {
             txtinput.Text = "";
@@ -31,6 +52,11 @@ namespace _2ndassessment
         private bool loopcheck;
 
 
+        /// <summary>
+        /// this is used for running the program
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btnrun_Click(object sender, EventArgs e)
         {
             Graphics g = pnloutput.CreateGraphics();

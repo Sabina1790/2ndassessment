@@ -55,19 +55,19 @@ namespace _2ndassessment
 
             Point[] p = new Point[5];
             p[0].X = x;
-            p[0].Y = y - (height / 2);
+            p[0].Y = y - (height / 1);
 
-            p[1].X = x - (width / 3);
-            p[1].Y = y + (height / 3);
+            p[1].X = x - (width / 2);
+            p[1].Y = y + (height / 2);
 
-            p[2].X = x + (width / 4);
-            p[2].Y = y + (height / 4);
+            p[2].X = x + (width / 3);
+            p[2].Y = y + (height / 3);
 
-            p[3].X = x + (width / 1);
-            p[3].Y = y + (height / 1);
+            p[3].X = x + (width / 4);
+            p[3].Y = y + (height / 4);
 
-            p[4].X = x + (width / 1);
-            p[4].Y = y + (height / 2);
+            p[4].X = x + (width / 5);
+            p[4].Y = y + (height / 5);
 
             Pen po = new Pen(Color.Black, 2);
             g.DrawPolygon(po, p);

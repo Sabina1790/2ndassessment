@@ -1,0 +1,36 @@
+
+**************************************************
+moveto 100,100
+polygon 100,100
+repeat 3 polygon+ 25
+
+
+moveto 100,100
+hexagon 100,100,200
+repeat 3 hexagon + 25
+
+
+moveto 100,100 
+3drectangle 100,100
+repeat 3 3drectangle + 25
+
+
+moveto 150,150 moveto 200,200
+circle 50
+repeat 3 circle + 20
+
+
+moveto 100,100 
+rectangle 100,50,100,50
+repeat 4 rectangle + 25
+
+moveto 200,200
+circle 50
+repeat 4 circle + 20
+
+
+moveto 200,150
+triangle 100,100
+repeat 3 triangle + 25
+
+
